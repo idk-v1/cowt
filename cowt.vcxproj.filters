@@ -20,8 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cowt">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <None Include="icowstream" />
   </ItemGroup>
 </Project>
