@@ -17,6 +17,7 @@ namespace std
 				switch (ch)
 				{
 				case ' ':
+				case '\t':
 				case '\n':
 					whitespace = true;
 					break;
@@ -29,127 +30,32 @@ namespace std
 			std::cout << mooStr;
 		}
 
+#define _COWT_OP(type) \
+	Cowt& operator<<(type _Val) \
+	{ \
+		str << _Val; \
+		moo(); \
+		str.str(""); \
+		return *this; \
+	}
+
 	public:
 
-		Cowt& operator<<(bool _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(short _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(unsigned short _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(int _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(unsigned int _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(long _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(unsigned long _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(long long _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(unsigned long long _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(float _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(double _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(long double _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(const char* _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(char _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
-
-		Cowt& operator<<(const std::string _Val)
-		{
-			str << _Val;
-			moo();
-			str.str("");
-			return *this;
-		}
+		_COWT_OP(bool)
+		_COWT_OP(char)
+		_COWT_OP(short)
+		_COWT_OP(unsigned short)
+		_COWT_OP(int)
+		_COWT_OP(unsigned int)
+		_COWT_OP(long)
+		_COWT_OP(unsigned long)
+		_COWT_OP(long long)
+		_COWT_OP(unsigned long long)
+		_COWT_OP(float)
+		_COWT_OP(double)
+		_COWT_OP(long double)
+		_COWT_OP(const char*)
+		_COWT_OP(const std::string&)
 	};
 
 	static Cowt cowt;
