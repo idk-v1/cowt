@@ -1,0 +1,155 @@
+#include <sstream>
+#include <iostream>
+
+namespace std
+{
+	class Cowt
+	{
+		std::stringstream str;
+		bool whitespace = true;
+
+		void moo()
+		{
+			std::string mooStr = str.str();
+			for (char& ch : mooStr)
+			{
+				switch (ch)
+				{
+				case ' ':
+				case '\n':
+					whitespace = true;
+					break;
+
+				default:
+					ch = (whitespace ? 'm' : 'o');
+					whitespace = false;
+				}
+			}
+			std::cout << mooStr;
+		}
+
+	public:
+
+		Cowt& operator<<(bool _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(short _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(unsigned short _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(int _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(unsigned int _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(long _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(unsigned long _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(long long _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(unsigned long long _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(float _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(double _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(long double _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(const char* _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(char _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+
+		Cowt& operator<<(const std::string _Val)
+		{
+			str << _Val;
+			moo();
+			str.str("");
+			return *this;
+		}
+	};
+
+	static Cowt cowt;
+}
